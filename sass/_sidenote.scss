@@ -1,0 +1,62 @@
+$sidenote-width: 28em;
+$sidenote-offset: 1.5em;
+$sidenote-font-size: 0.8em;
+$sidenote-box-border: 0.35em;
+
+// Bit inspiration from this fantastic website: https://danilafe.com/blog/sidenotes/
+
+.sidenote {
+    &:hover {
+        .sidenote-label {
+            background: var(--accent-alpha-70)
+        }
+
+        .sidenote-content {
+            border-style: dashed;
+        }
+    }
+}
+
+.sidenote-content {
+    display: block;
+    position: absolute;
+    width: $sidenote-width;
+    box-sizing: border-box;
+    margin-top: -1.5em;
+    font-size: $sidenote-font-size;
+
+    padding: 1em;
+    border-color: var(--accent-alpha-70);
+    border-width: $sidenote-box-border;
+    border-style: solid;
+
+    &.sidenote-right {
+        right: 0;
+        margin-right: -($sidenote-width + $sidenote-offset);
+    }
+
+    @media screen and (max-width: $tablet-max-width) {
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        display: none;
+
+        .sidenote-checkbox:checked~& {
+            display: block;
+        }
+
+        &.sidenote-right {
+            margin-right: 0px;
+        }
+    }
+
+}
+
+.sidenote-label {
+    border-bottom: .2rem dashed var(--accent-alpha-70);
+}
+
+.sidenote-checkbox {
+    display: none;
+}
