@@ -192,8 +192,9 @@ pre {
   }
 
   @media (max-width: $phone-max-width) {
-    white-space: pre-wrap;
+    white-space: pre;
     word-wrap: break-word;
+    overflow-x: auto;
   }
 
   code {
